@@ -1,0 +1,12 @@
+# Datos
+*.csv
+*.xlsx
+*.dbf
+data/
+
+# Archivos de sistema y Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+.env

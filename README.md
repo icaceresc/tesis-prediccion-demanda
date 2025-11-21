@@ -21,7 +21,7 @@ El procesamiento se divide en 6 etapas secuenciales, documentadas en la carpeta 
 
 ## 🛠️ Requisitos de Instalación
 
-El proyecto utiliza Python 3.9+. Las dependencias principales son:
+El proyecto utiliza Python 3.12.10. Las dependencias principales son:
 * `pandas` & `numpy`: Manipulación de datos.
 * `scikit-learn`: Modelos de regresión, KNN y métricas.
 * `pmdarima`: Implementación de Auto-ARIMA/SARIMA.
@@ -29,4 +29,5 @@ El proyecto utiliza Python 3.9+. Las dependencias principales son:
 
 Para replicar el entorno:
 ```bash
+
 pip install -r requirements.txt

@@ -1,10 +1,10 @@
-# Metodología de Predicción de Demanda para Inventarios en Retail
+# Metodología de Predicción de Demanda para Inventarios en el Sector de Distribución Ferretero
 
-Este repositorio contiene el código fuente, los cuadernos de experimentación (*notebooks*) y los recursos computacionales desarrollados para el Trabajo Final de Grado de Ingeniería Industrial: **"Diseño de un sistema de pronóstico de demanda basado en aprendizaje automático para la gestión de inventarios"**.
+Este repositorio contiene el código fuente, los cuadernos de experimentación (*notebooks*) y los recursos computacionales desarrollados para el Trabajo Final de Grado de Ingeniería Industrial: **"Diseño de un Marco de Decisión Logística mediante Pronóstico Híbrido y Segmentación de Inventario: Caso de Estudio en el Sector de Distribución Ferretero"**.
 
 ## 📋 Descripción del Proyecto
 
-El objetivo de este proyecto es desarrollar un marco de modelado híbrido que compare enfoques deterministas (Regresión), estocásticos (SARIMA) y de aprendizaje automático no paramétrico (KNN) para segmentar y predecir la demanda de un inventario minorista de +11,000 SKUs.
+El objetivo de este proyecto es desarrollar un marco de modelado híbrido que compare enfoques deterministas (Regresión), estocásticos (SARIMA) y de aprendizaje automático no paramétrico (KNN) para segmentar y predecir la demanda de un inventario mayorista de +11,000 SKUs.
 
 El flujo de trabajo sigue una adaptación académica de la metodología **CRISP-DM**.
 
@@ -31,3 +31,4 @@ Para replicar el entorno:
 ```bash
 
 pip install -r requirements.txt
+

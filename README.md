@@ -1,34 +1,70 @@
-# Metodología de Predicción de Demanda para Inventarios en el Sector de Distribución Ferretero
+# Marco de Decisión Logística: Pronóstico Híbrido y Segmentación de Inventario
 
-Este repositorio contiene el código fuente, los cuadernos de experimentación (*notebooks*) y los recursos computacionales desarrollados para el Trabajo Final de Grado de Ingeniería Industrial: **"Diseño de un Marco de Decisión Logística mediante Pronóstico Híbrido y Segmentación de Inventario: Caso de Estudio en el Sector de Distribución Ferretero"**.
+![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=flat&logo=python&logoColor=white)
+![Scikit-Learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat&logo=scikit-learn&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Finalizado-success)
 
-## 📋 Descripción del Proyecto
+## Resumen Ejecutivo
 
-El objetivo de este proyecto es desarrollar un marco de modelado híbrido que compare enfoques deterministas (Regresión), estocásticos (SARIMA) y de aprendizaje automático no paramétrico (KNN) para segmentar y predecir la demanda de un inventario mayorista de +11,000 SKUs.
+Este proyecto, desarrollado como Trabajo Final de Grado en Ingeniería Industrial, implementa un marco de modelado híbrido para la **predicción de demanda** y **segmentación de inventario** en el sector de distribución ferretero mayorista.
 
-El flujo de trabajo sigue una adaptación académica de la metodología **CRISP-DM**.
+El sistema procesa un universo de más de **11,000 SKUs**, comparando enfoques deterministas, estocásticos y de aprendizaje automático para optimizar la toma de decisiones logísticas.
 
-## 🚀 Estructura del Pipeline
+**Objetivos Técnicos:**
+* Comparación de rendimiento entre modelos de Regresión Lineal, SARIMA (estocástico) y K-Nearest Neighbors (no paramétrico).
+* Implementación de metodología CRISP-DM adaptada a la cadena de suministro.
+* Validación estadística mediante métrica MASE (Mean Absolute Scaled Error).
 
-El procesamiento se divide en 6 etapas secuenciales, documentadas en la carpeta `notebooks/`:
+## Stack Tecnológico
 
-1.  **[01_Preprocesamiento](notebooks/01_Preprocesamiento.ipynb)**: Ingesta de datos crudos (.DBF), limpieza ETL y consolidación mensual.
-2.  **[02_Analisis_y_Filtrado](notebooks/02_Analisis_y_Filtrado.ipynb)**: Aplicación del "Embudo de Selección". Filtros de 48 meses, detección de pandemia y outliers. Definición del Universo Relevante.
-3.  **[03_Modelado](notebooks/03_Modelado.ipynb)**: Entrenamiento y validación cruzada (*Time Series Split*) de los modelos competidores. Selección de hiperparámetros.
-4.  **[04_Analisis_de_Resultados](notebooks/04_Analisis_de_Resultados.ipynb)**: Evaluación estadística basada en MASE. Clasificación del inventario en Predecible vs. No Predecible.
-5.  **[05_Analisis_Casos_de_Estudio](notebooks/05_Analisis_Casos_de_Estudio.ipynb)**: Auditoría visual de los modelos ganadores (Lineal, SARIMA, KNN) para validar coherencia logística.
-6.  **[06_Entregable](notebooks/06_Entregable.ipynb)**: Generación de la "Maestra de Productos Predecibles" y exportación de resultados para la toma de decisiones.
+* **Lenguaje:** Python 3.12.10
+* **Procesamiento de Datos:** Pandas, NumPy
+* **Modelado y Machine Learning:** Scikit-learn, Pmdarima (Auto-ARIMA)
+* **Visualización:** Matplotlib, Seaborn
 
-## 🛠️ Requisitos de Instalación
+## Arquitectura del Pipeline
 
-El proyecto utiliza Python 3.12.10. Las dependencias principales son:
-* `pandas` & `numpy`: Manipulación de datos.
-* `scikit-learn`: Modelos de regresión, KNN y métricas.
-* `pmdarima`: Implementación de Auto-ARIMA/SARIMA.
-* `matplotlib` & `seaborn`: Visualización de datos.
+El flujo de trabajo se estructura en seis etapas secuenciales diseñadas para garantizar la integridad de los datos y la robustez de las predicciones.
 
-Para replicar el entorno:
+### 1. Ingesta y Preprocesamiento (ETL)
+Transformación de datos crudos (`.DBF`) y consolidación temporal. Se asegura la calidad del dato antes de iniciar el análisis.
+* *Notebook:* `01_Preprocesamiento.ipynb`
+
+### 2. Análisis Exploratorio y Filtrado (EDA)
+Aplicación de un "Embudo de Selección" para definir el universo relevante.
+* Filtrado de histórico (ventanas de 48 meses).
+* Detección de anomalías por impacto de pandemia y outliers estadísticos.
+* *Notebook:* `02_Analisis_y_Filtrado.ipynb`
+
+### 3. Entrenamiento y Validación (Modelado)
+Entrenamiento de modelos competidores utilizando validación cruzada para series temporales (*Time Series Split*).
+* Ajuste de hiperparámetros para Regresión, SARIMA y KNN.
+* *Notebook:* `03_Modelado.ipynb`
+
+### 4. Evaluación de Desempeño
+Clasificación del inventario basada en la previsibilidad. Se utiliza el MASE como métrica principal para determinar la viabilidad de la automatización del pronóstico frente a métodos ingenuos (Naïve).
+* *Notebook:* `04_Analisis_de_Resultados.ipynb`
+
+### 5. Auditoría de Casos de Estudio
+Validación visual y lógica de los modelos ganadores para asegurar la coherencia con la operativa logística real.
+* *Notebook:* `05_Analisis_Casos_de_Estudio.ipynb`
+
+### 6. Despliegue de Resultados
+Generación de la "Maestra de Productos Predecibles" y exportación de datos finales para integración en sistemas ERP o dashboards de BI.
+* *Notebook:* `06_Entregable.ipynb`
+
+## Instalación y Reproducibilidad
+
+Se recomienda ejecutar el proyecto en un entorno virtual para gestionar las dependencias correctamente.
+
 ```bash
+# Clonar el repositorio
+git clone <url-del-repositorio>
 
+# Crear entorno virtual
+python -m venv venv
+source venv/bin/activate  # En Windows: venv\Scripts\activate
+
+# Instalar dependencias
 pip install -r requirements.txt
-
